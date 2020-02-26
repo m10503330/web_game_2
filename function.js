@@ -82,7 +82,7 @@ Game.prototype.init = function(){
     this.ctx=this.canvas.getContext("2d");
     this.render();
     this.update();
-    this.generateFood();
+    
 }
 Game.prototype.startGame = function(){
     this.start = true;
@@ -90,6 +90,7 @@ Game.prototype.startGame = function(){
     $('.panel').hide();
     this.playSound("C#5",-20);    
     this.playSound("E5",-10,200);
+    this.generateFood();
 }
 Game.prototype.endGame = function(){
     this.start = false;
@@ -98,7 +99,7 @@ Game.prototype.endGame = function(){
     this.playSound("A3",-20);    
     this.playSound("E2",-10,200);
     this.playSound("A2",-10,400);
-
+    this.foods=[];
 }
 Game.prototype.getPosition = function(x,y){
     return new Vector(x*this.bw+x*this.bs,y*this.bw+y*this.bs)
